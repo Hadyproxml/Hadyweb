@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+Arabic:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans Arabic", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  @media print {
+    @page {
+      margin: 0;
+      size: auto;
+    }
+    body {
+      background: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    body * {
+      visibility: hidden !important;
+    }
+    #print-slip, #print-slip * {
+      visibility: visible !important;
+    }
+    #print-slip {
+      display: block !important;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin: 0;
+      padding: 40px;
+      z-index: 9999;
+      background: white !important;
+      color: black !important;
+    }
+    /* Ensure grid and flex work in print */
+    #print-slip .grid { display: grid !important; }
+    #print-slip .flex { display: flex !important; }
+  }
+}
